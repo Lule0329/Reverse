@@ -21,16 +21,20 @@ namespace Reverse
 
         public static void Reverse(int[] numbers)
         {
-            int[] numbers2 = new int[numbers.Length];
+            // två värden som börjar på olika sidor av arrayen
+            int left = 0;
+            int right = numbers.Length - 1;
 
-            for (int i = 0; i < numbers.Length; i++)
+            while (left < right)
             {
-                numbers2[i] = numbers[i];
-            }
+                // Byter plats på talen i arrayen
+                int temp = numbers[left];
+                numbers[left] = numbers[right];
+                numbers[right] = temp;
 
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                numbers[i] = numbers2[numbers.Length - i - 1];
+                // Flyttar höger ett steg neråt och flyttar vänster ett steg uppåt
+                left++;
+                right--;
             }
         }
     }
